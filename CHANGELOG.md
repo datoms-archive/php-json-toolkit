@@ -1,3 +1,8 @@
+## v 0.2.0 (2016-05-04)
+### Features
+1. Added function get_data to get an array of objects(or the values of specific keys of the objects) having a particular key=>value pair out of an array of objects
+2. Changed the name of function get to get_value_of
+
 ## v 0.1.0 (2016-04-29)
 ### Features
 1. Added function to get value of a key
