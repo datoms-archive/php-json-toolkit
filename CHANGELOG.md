@@ -1,3 +1,7 @@
+## v 0.3.0 (2016-06-05)
+### Features
+1. Added README.md
+
 ## v 0.2.0 (2016-05-04)
 ### Features
 1. Added function get_data to get an array of objects(or the values of specific keys of the objects) having a particular key=>value pair out of an array of objects
