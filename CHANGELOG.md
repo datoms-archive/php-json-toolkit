@@ -1,3 +1,7 @@
+## v 0.5.0 (2016-06-23)
+### Features
+1. Added simple test script tests/Test.php
+
 ## v 0.4.0 (2016-06-22)
 ### Features
 1. Added .travis.yml file
