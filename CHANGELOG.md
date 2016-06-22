@@ -1,3 +1,7 @@
+## v 0.4.0 (2016-06-22)
+### Features
+1. Added .travis.yml file
+
 ## v 0.3.0 (2016-06-05)
 ### Features
 1. Added README.md
