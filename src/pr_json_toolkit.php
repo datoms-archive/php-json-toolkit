@@ -31,7 +31,7 @@ class PR_JSON_TOOL_KIT {
 	}
 
 	//get an array of objects(or the values of specific keys of the objects) having a particular key=>value pair out of an array of objects
-	function get_data($search_key_values, $return_value_of_keys, $json_array="") {
+	function get_data($search_key_values, $return_value_of_keys=[], $json_array="") {
 		if($json_array == "") {
 			$json_array = $this->data;
 		}
@@ -57,12 +57,16 @@ class PR_JSON_TOOL_KIT {
 		$final_results_array = [];
 		foreach($matched_json_objects as $matched_json_key => $matched_json_value) {
 			$json_object_to_be_returned = [];
-			foreach($return_value_of_keys as $return_search_key) {
-				$required_value = $this->get_value_of($return_search_key, $matched_json_value);
-				if($required_value) {
-					$json_object_to_be_returned[$return_search_key] = $required_value;
-				} else {
-					$json_object_to_be_returned[$return_search_key] = null;
+			if(empty($return_value_of_keys) || !is_array($return_value_of_keys)) {
+				$json_object_to_be_returned = $matched_json_value;
+			} else {
+				foreach($return_value_of_keys as $return_search_key) {
+					$required_value = $this->get_value_of($return_search_key, $matched_json_value);
+					if($required_value) {
+						$json_object_to_be_returned[$return_search_key] = $required_value;
+					} else {
+						$json_object_to_be_returned[$return_search_key] = null;
+					}
 				}
 			}
 			$final_results_array []= $json_object_to_be_returned;
