@@ -3,7 +3,6 @@
 	"description": "A simple php library to work with JSON data",
 	"version": "0.7.0",
 	"require": {
-		"php": "^5.4"
 	},
     "require-dev": {
         "phpunit/phpunit": "*"
