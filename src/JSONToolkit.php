@@ -1,5 +1,7 @@
 <?php
-class PR_JSON_TOOL_KIT {
+namespace PhoenixRobotix;
+
+class JSONToolkit {
 	//parsed json data as an associative array
 	private $data, $key_separator;
 
