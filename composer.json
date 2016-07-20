@@ -1,5 +1,5 @@
 {
-	"name": "PhoenixRobotix/php-json-toolkit",
+	"name": "phoenix-robotix/php-json-toolkit",
 	"description": "A simple php library to work with JSON data",
 	"version": "0.7.0",
 	"require": {
