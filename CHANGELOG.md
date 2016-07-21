@@ -1,3 +1,7 @@
+## v 0.7.0 (2016-07-21)
+### Features
+1. Added PhoenixRobotix namespace and prepared the repo ready to be published to packagist.org
+
 ## v 0.6.0 (2016-06-23)
 ### Features
 1. Added test command to .travis.yml
