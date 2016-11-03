@@ -12,7 +12,7 @@ class JSONToolkit {
 	}
 
 	//get value of a key from the json data
-	function get_value_of($key, $json_data="") {
+	function get_value_of($key, $json_data="", $return_key_not_found = false) {
 		if($json_data == "") {
 			$json_data = $this->data;
 		}
@@ -22,13 +22,13 @@ class JSONToolkit {
 				$json_data = $json_data[$keys[0]];
 				array_shift($keys);
 			} else {
-				return false;
+				return $return_key_not_found;
 			}
 		}
 		if(!count($keys)) {
 			return $json_data;
 		} else {
-			return false;
+			return $return_key_not_found;
 		}
 	}
 
@@ -76,5 +76,42 @@ class JSONToolkit {
 
 		//return the final array containing the required keys of the matched json objects
 		return $final_results_array;
+	}
+
+	/**
+	 * Set value of given key in json data and return the modified json object
+	 * @param [type] $key       [description]
+	 * @param [type] $value     [description]
+	 * @param string $json_data [description]
+	 *
+	 * Inspired By https://lodash.com/docs/4.16.6#set
+	 * & http://anahkiasen.github.io/underscore-php/#Object-set
+	 */
+	function set_value_of($key, $value, $json_data="") {
+		if($json_data == "") {
+			$json_data = $this->data;
+		}
+		$keys = explode($this->key_separator, $key);
+
+		// $this->internalSet($json_data, $key, $value);
+		$object = &$json_data;
+
+		while(count($keys) > 1) {
+            $key = array_shift($keys);
+
+            $object[$key] = [];
+            $object[$key] = $this->get_value_of($key, $object);
+
+            $object = &$object[$key];
+        }
+        // Bind final tree on the object
+        $key = array_shift($keys);
+        if(is_array($object)) {
+            $object[$key] = $value;
+        } else {
+            $object->$key = $value;
+        }
+
+		return $json_data;
 	}
 }

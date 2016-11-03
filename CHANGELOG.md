@@ -1,6 +1,7 @@
 ## v 0.7.0 (2016-07-21)
 ### Features
 1. Added PhoenixRobotix namespace and prepared the repo ready to be published to packagist.org
+2. The package can now be installed via composer
 
 ## v 0.6.0 (2016-06-23)
 ### Features
